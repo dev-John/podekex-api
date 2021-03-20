@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 
 const schema = new Schema(
   {
-    Number: String,
+    Number: { type: String, unique: true },
     Name: String,
     Generation: String,
     About: String,
@@ -29,8 +29,10 @@ const schema = new Schema(
     ],
     Weight: {
       Minimum: String,
+      Maximum: String,
     },
     Height: {
+      Minimum: String,
       Maximum: String,
     },
     "Buddy Distance": String,

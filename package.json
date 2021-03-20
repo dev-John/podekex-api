@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "npm test"
+    "test": "c8 ava",
+    "test:watch": "c8 ava --watch"
   },
   "keywords": [
     "pokedex",
@@ -18,6 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/hapi": "^20.1.1",
+    "ava": "^3.15.0",
+    "c8": "^7.6.0",
     "dotenv": "^8.2.0",
     "joi": "^17.4.0",
     "mongoose": "^5.12.1",

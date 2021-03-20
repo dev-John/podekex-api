@@ -5,3 +5,12 @@ export function getAllPokemons() {
     throw new Error("Não foram encontrados pokemons cadastrados");
   });
 }
+
+export function createPokemon(pokemon) {
+  return Pokemon.create(pokemon).catch((error) => {
+    console.error(error);
+    throw new Error("Falha ao cadastrar Pokemon");
+  });
+}
+
+// export function updatePokemon(pokemon) {}
