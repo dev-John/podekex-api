@@ -14,5 +14,6 @@ export const HTTP_CODES = {
 export const HTTP_VERBS = {
   GET: "GET",
   POST: "POST",
+  PUT: "PUT",
   DELETE: "DELETE",
 };

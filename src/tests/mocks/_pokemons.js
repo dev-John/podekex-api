@@ -4,18 +4,14 @@ const poketest = {
   Generation: "Generation I",
   About:
     "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
-  Types: ["Grass", "Poison"],
+  types: "Grass, Poison",
   Resistant: ["Water", "Electric", "Grass", "Fighting", "Fairy"],
   Weaknesses: ["Fire", "Ice", "Flying", "Psychic"],
   "Fast Attack(s)": [
     { Name: "Tackle", Type: "Normal", Damage: 12 },
     { Name: "Vine Whip", Type: "Grass", Damage: 7 },
   ],
-  "Special Attack(s)": [
-    { Name: "Power Whip", Type: "Grass", Damage: 70 },
-    { Name: "Seed Bomb", Type: "Grass", Damage: 40 },
-    { Name: "Sludge Bomb", Type: "Poison", Damage: 55 },
-  ],
+  attacks: "Power Whip, Seed Bomb, Sludge Bomb",
   Weight: { Minimum: "6.04kg", Maximum: "7.76kg" },
   Height: { Minimum: "0.61m", Maximum: "0.79m" },
   "Buddy Distance": "3km (Medium)",

@@ -11,7 +11,7 @@ async function init() {
   await connect();
 
   const server = Hapi.server({
-    port: 3000,
+    port: 3333,
     host: "localhost",
     routes: { cors: { origin: ["*"], credentials: true } },
     query: { parser: (query) => qs.parse(query) },
