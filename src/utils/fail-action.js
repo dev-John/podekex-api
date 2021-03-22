@@ -1,4 +1,4 @@
-import { HTTP_CODES, RESPONSE_STATUS } from '../constants/index.js';
+import { HTTP_CODES, RESPONSE_STATUS } from "../constants/index.js";
 
 export default function failAction(request, h, error) {
   return h
