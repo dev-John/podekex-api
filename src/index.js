@@ -13,7 +13,7 @@ async function init() {
 
   const server = Hapi.server({
     port: process.env.PORT || 3333,
-    // host: "localhost",
+    // host: "localhost", // removido pois o heroku nao aceita a propriedade
     routes: { cors: { origin: ["*"], credentials: true } },
     query: { parser: (query) => qs.parse(query) },
   });
