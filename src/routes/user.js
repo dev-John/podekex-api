@@ -12,6 +12,7 @@ export default [
     path: "/signup",
 
     options: {
+      auth: false,
       validate: {
         payload: Joi.object({
           name: Joi.string()
@@ -47,6 +48,10 @@ export default [
   {
     method: POST,
     path: "/login",
+
+    options: {
+      auth: false,
+    },
 
     async handler(req, h) {
       const { email, password } = req.payload;
