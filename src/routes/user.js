@@ -1,5 +1,8 @@
+import Joi from "joi";
 import { HTTP_CODES, RESPONSE_STATUS, HTTP_VERBS } from "../constants/index.js";
 import { login, signup } from "../controllers/user.js";
+
+import failAction from "../utils/fail-action.js";
 
 const { POST } = HTTP_VERBS;
 
@@ -7,6 +10,24 @@ export default [
   {
     method: POST,
     path: "/signup",
+
+    options: {
+      validate: {
+        payload: Joi.object({
+          name: Joi.string()
+            .required()
+            .messages({ "string.empty": "O campo Nome é obrigatório" }),
+          email: Joi.string()
+            .required()
+            .messages({ "string.empty": "O campo Email é obrigatório" }),
+          password: Joi.string()
+            .required()
+            .messages({ "string.empty": "O campo Senha é obrigatório" }),
+        }),
+
+        failAction,
+      },
+    },
 
     async handler(req, h) {
       const { name, email, password } = req.payload;
