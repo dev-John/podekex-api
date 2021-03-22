@@ -1,9 +1,10 @@
 import dotenv from "dotenv";
 import qs from "qs";
 import Hapi from "@hapi/hapi";
-
+import hapiAuthJwt2 from "hapi-auth-jwt2";
 import { connect } from "./db/conn.js";
 import routes from "./routes/index.js";
+import { name, schema, options } from "./auth/strategies/jwt.js";
 
 dotenv.config();
 
@@ -18,6 +19,12 @@ async function init() {
   });
 
   server.route(routes);
+
+  await server.register(hapiAuthJwt2);
+
+  server.auth.strategy(name, schema, options);
+  server.auth.default(name);
+
   await server.start();
   console.log("Server running on %s", server.info.uri);
 }
