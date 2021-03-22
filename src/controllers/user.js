@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import speakeasy from "speakeasy";
 import { User } from "../models/index.js";
 import { hashPassword, isPasswordCorrect } from "../utils/salt.js";
@@ -39,6 +40,10 @@ export async function verifyUser(userId, answer) {
     throw new Error("Esse usuário não existe!");
   });
 
+  const { _id, name, email } = user;
+
+  const jwtUser = { _id, name, email }
+
   const secret = user.tempSecret;
 
   if (secret) {
@@ -58,16 +63,16 @@ export async function verifyUser(userId, answer) {
       });
 
       // retornar jwt ou algo do tipo
-      return validateToken(secret, answer);
+      return validateToken(jwtUser, secret, answer);
     } else {
       return { validated: false };
     }
   } else {
-    return validateToken(user.secret, answer);
+    return validateToken(jwtUser, user.secret, answer);
   }
 }
 
-async function validateToken(secret, token) {
+async function validateToken(user, secret, token) {
   const tokenValidates = speakeasy.totp.verify({
     secret,
     encoding: "base32",
@@ -76,7 +81,11 @@ async function validateToken(secret, token) {
   });
 
   if (tokenValidates) {
-    return { validated: true };
+    const jwtToken = jwt.sign(user, process.env.JWT_SECRET, {
+      expiresIn: 3000
+    })
+
+    return { jwtToken, validated: true };
   } else {
     return { validated: false };
   }

@@ -16,6 +16,7 @@ export default [
 
     async handler(req, h) {
       const { page, rowsPerPage } = req.query;
+      console.log("HEADERS =>", req.headers)
 
       try {
         const data = await getPokemons({ page, rowsPerPage });
