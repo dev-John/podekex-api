@@ -1,7 +1,11 @@
 import pokemon from "./pokemon.js";
+import user from "./user.js";
+import auth from "./auth.js";
 
 export default [
   ...pokemon,
+  ...user,
+  ...auth,
   {
     method: "*",
     path: "/",
