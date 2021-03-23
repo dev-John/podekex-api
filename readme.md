@@ -6,7 +6,7 @@ Stack
 
 Implementing
 
-**2FA, JSONWEBTOKENS (JWT)**
+**2FA, JSONWEBTOKENS (JWT), FULL AUTHENTICATED FLOW, COMPLETE POKEMON CRUD**
 
 Para executar a aplicação:
 
