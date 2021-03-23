@@ -2,7 +2,11 @@
 
 Stack
 
-**Nodejs, Hapi API, Joi Validations, AVA, Github Actions Pipeline**
+**Nodejs, Hapi API, Joi Validations, AVA, Mongodb + Mongoose & Github Actions Pipeline**
+
+Implementing
+
+**2FA, JSONWEBTOKENS (JWT)**
 
 Para executar a aplicação:
 
